@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "X / Twitter Video Downloader Button",
+  "version": "1.0.0",
+  "description": "Places a download button in the top-right corner of X/Twitter videos to download the highest-resolution MP4.",
+  "permissions": [
+    "downloads"
+  ],
+  "host_permissions": [
+    "*://*.twitter.com/*",
+    "*://*.x.com/*",
+    "https://api.vxtwitter.com/*",
+    "https://api.fxtwitter.com/*",
+    "*://*.twimg.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.twitter.com/*",
+        "*://*.x.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
